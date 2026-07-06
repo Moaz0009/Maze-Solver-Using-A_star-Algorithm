@@ -34,7 +34,8 @@ void carveDFS(int startR, int startC, std::vector<std::string>& maze, std::mt199
 }
 
 struct FrontierNode {
-    int r, c, wr, wc; 
+    int r, c, wr, wc;
+    // (r,c) -> Target Cell | (wr, wc) -> Coordinates of the wall sitting directly between the Maze and the target cell
 };
 
 void carvePrim(int startR, int startC, std::vector<std::string>& maze, std::mt19937& gen) {
@@ -46,7 +47,7 @@ void carvePrim(int startR, int startC, std::vector<std::string>& maze, std::mt19
         maze[startR][startC] = EMPTY;
     }
 
-    int dr[] = {-2, 2, 0, 0};
+    int dr[] = {-2, 2, 0, 0}; // { Up, Down, Left, Right }  Move by 2 to make sure walls are created
     int dc[] = {0, 0, -2, 2};
 
     auto addFrontiers = [&](int r, int c) {
