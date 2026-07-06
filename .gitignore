@@ -30,3 +30,7 @@
 # OS generated files
 .DS_Store
 thumbs.db
+
+cmake-build-debug/
+.idea/
+*.exe
