@@ -4,22 +4,22 @@
 #include <chrono>
 #include <algorithm>
 
-void carveDFS(int r, int c, std::vector<std::string>& maze, std::mt19937& gen) {
+void carveDFS(int startR, int startC, std::vector<std::string>& maze, std::mt19937& gen) {
     if (!isRunning) return;
 
-    int dr[] = {-2, 2, 0, 0};
+    int dr[] = {-2, 2, 0, 0}; // { Up, Down, Left, Right }  Move by 2 to make sure walls are created
     int dc[] = {0, 0, -2, 2};
     std::vector<int> dirs = {0, 1, 2, 3};
     std::shuffle(dirs.begin(), dirs.end(), gen); 
 
     for (int i : dirs) {
-        int nr = r + dr[i];
-        int nc = c + dc[i];
+        int nr = startR + dr[i];
+        int nc = startC + dc[i];
 
         if (nr > 0 && nr < maze.size() - 1 && nc > 0 && nc < maze[0].size() - 1 && maze[nr][nc] == WALL) {
             {
                 std::lock_guard<std::mutex> lock(mazeMutex);
-                maze[r + dr[i] / 2][c + dc[i] / 2] = EMPTY; 
+                maze[startR + dr[i] / 2][startC + dc[i] / 2] = EMPTY;
                 maze[nr][nc] = HEAD; 
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(15)); 

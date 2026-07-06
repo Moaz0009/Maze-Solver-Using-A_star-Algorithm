@@ -3,5 +3,5 @@
 #include <string>
 #include <random>
 
-void carveDFS(int r, int c, std::vector<std::string>& maze, std::mt19937& gen);
+void carveDFS(int startR, int startC, std::vector<std::string>& maze, std::mt19937& gen);
 void carvePrim(int startR, int startC, std::vector<std::string>& maze, std::mt19937& gen);
