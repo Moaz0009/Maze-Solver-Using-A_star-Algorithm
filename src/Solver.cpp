@@ -14,7 +14,7 @@ struct Node {
 };
 
 int getHeuristic(int x, int y, int exitX, int exitY) {
-    return std::abs(x - exitX) + std::abs(y - exitY);
+    return std::abs(x - exitX) + std::abs(y - exitY); // Manhattan Distance
 }
 
 struct CompareNode {
@@ -30,7 +30,7 @@ void placeHardestExit(std::vector<std::string>& maze, int startX, int startY, in
     q.push({startX, startY});
     visited[startX][startY] = true;
 
-    int dx[] = {-1, 1, 0, 0};
+    int dx[] = {-1, 1, 0, 0};// Moving only one step at a time
     int dy[] = {0, 0, -1, 1};
 
     int furthestX = startX;
@@ -73,7 +73,7 @@ void solveAStar(std::vector<std::string>& maze, int startX, int startY, int exit
     openSet.push(startNode);
     closedSet[startX][startY] = true;
 
-    int dx[] = {-1, 1, 0, 0};
+    int dx[] = {-1, 1, 0, 0}; // Moving only one step at a time
     int dy[] = {0, 0, -1, 1};
 
     int nodesEvaluated = 0;
