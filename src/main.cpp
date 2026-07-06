@@ -6,7 +6,7 @@
 #include <chrono>
 #include <random>
 
-// Include our custom modular files
+// Include custom modular files
 #include "Constants.h"
 #include "MazeGenerator.h"
 #include "Solver.h"
@@ -85,15 +85,15 @@ int main() {
                 cell.setPosition(c * cellSize, r * cellSize);
 
                 char tile = myMaze[r][c];
-                if      (tile == WALL)     cell.setFillColor(sf::Color(30, 30, 45));
-                else if (tile == EMPTY)    cell.   setFillColor(sf::Color(240, 240, 240));
-                else if (tile == HEAD)     cell.setFillColor(sf::Color(255, 100, 200));
-                else if (tile == FRONTIER) cell.setFillColor(sf::Color(255, 165, 0));
-                else if (tile == START)    cell.setFillColor(sf::Color(50, 200, 50));
-                else if (tile == EXIT)     cell.setFillColor(sf::Color(200, 50, 50));
-                else if (tile == 'O')      cell.setFillColor(sf::Color(255, 200, 0));
-                else if (tile == 'x')      cell.setFillColor(sf::Color(150, 200, 255));
-                else if (tile == '*')      cell.setFillColor(sf::Color(200, 0, 255));
+                if      (tile == WALL)     cell.setFillColor(sf::Color(30, 30, 45));      // very dark blue-gray
+                else if (tile == EMPTY)    cell.setFillColor(sf::Color(240, 240, 240));  // very light gray / almost white
+                else if (tile == HEAD)     cell.setFillColor(sf::Color(255, 100, 200));  // pink / hot pink
+                else if (tile == FRONTIER) cell.setFillColor(sf::Color(255, 165, 0));    // orange
+                else if (tile == START)    cell.setFillColor(sf::Color(50, 200, 50));    // green
+                else if (tile == EXIT)     cell.setFillColor(sf::Color(200, 50, 50));    // red
+                else if (tile == 'O')      cell.setFillColor(sf::Color(255, 200, 0));    // gold / yellow-orange
+                else if (tile == 'x')      cell.setFillColor(sf::Color(150, 200, 255));  // light blue
+                else if (tile == '*')      cell.setFillColor(sf::Color(200, 0, 255));    // purple / magenta
 
                 window.draw(cell);
             }
