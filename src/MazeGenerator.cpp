@@ -38,6 +38,7 @@ struct FrontierNode {
 };
 
 void carvePrim(int startR, int startC, std::vector<std::string>& maze, std::mt19937& gen) {
+    if (!isRunning) return;
     std::vector<FrontierNode> frontiers;
     
     {
