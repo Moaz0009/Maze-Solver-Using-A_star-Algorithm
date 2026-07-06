@@ -27,6 +27,14 @@ cd build
 cmake ..
 cmake --build .
 ```
+## Running the Project
+
+Once the build is complete, the executable will be generated inside the `build/Debug` directory. 
+You can run it directly from the terminal:
+
+```bash
+./Debug/MazeSolver.exe
+```
 
 ## How to Use
 
